@@ -11,13 +11,13 @@ class TestBooksCollector:
         collector.add_new_book('Что делать, если ваш кот хочет вас убить')
         assert len(collector.books_genre) == 2
     
-    @pytest.mark.parametrize('name', ['Гордость и предубеждение и зомби', 'Что делать, если ваш кот хочет вас убить'])    
+    @pytest.mark.parametrize('name', ['Г', 'Что делать, если ваш кот хочет вас убить'])    
     def test_add_new_book_genre_is_empty(self, name):
         collector = BooksCollector()
         collector.add_new_book(name)
         assert collector.books_genre[name] == ''
         
-    @pytest.mark.parametrize('name, genre', [['Гордость и предубеждение и зомби', 'Ужасы'], ['Что делать, если ваш кот хочет вас убить', 'Комедии']])
+    @pytest.mark.parametrize('name, genre', [['Г', 'Ужасы'], ['Что делать, если ваш кот хочет вас убить', 'Комедии']])
     def test_set_book_genre_is_not_empty(self, name, genre):
         collector = BooksCollector()
         collector.add_new_book(name)
@@ -25,7 +25,7 @@ class TestBooksCollector:
         print(type(collector))
         assert collector.books_genre[name] == genre
     
-    @pytest.mark.parametrize('name, genre', [['Гордость и предубеждение и зомби', 'Ужасы'], ['Что делать, если ваш кот хочет вас убить', 'Комедии']])   
+    @pytest.mark.parametrize('name, genre', [['Г', 'Ужасы'], ['Что делать, если ваш кот хочет вас убить', 'Комедии']])   
     def test_get_book_genre_appropriate_genre(self, name, genre):
         collector = BooksCollector()
         collector.add_new_book(name)
